@@ -1,0 +1,69 @@
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  22%,
+  24%,
+  55% {
+    opacity: 0;
+  }
+}
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.wrapper img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+}
+
+.grid > div {
+  grid-area: 2 / 2 / 3 / 3;
+  cursor: pointer;
+}
+#cg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 67px;
+  font-kerning: auto;
+  color: #f200ff;
+  text-shadow: 0 0 30px #ff0095;
+}
+#cg-description {
+  opacity: 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-kerning: auto;
+  color: #ff9d00;
+  text-shadow: 0 0 10px #ff0000;
+  transition: opacity 0.4s;
+}
+#cg-text {
+  animation: flicker 3s infinite;
+}
